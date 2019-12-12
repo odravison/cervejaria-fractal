@@ -1,8 +1,6 @@
 # Cervejaria-Fractal
 Project with the purpose to demonstrate abilities in front-end using ReactJS framework to Fractal interview process
 
----
-
 ## How to run locally
 
 Required:
