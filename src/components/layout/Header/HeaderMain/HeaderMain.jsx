@@ -7,7 +7,7 @@ class HeaderMain extends React.Component {
     this.state = {  }
   }
   render() { 
-    const className = "custom-navbar sticky-top navbar-dark bg-dark mx-auto";
+    const className = "HeaderMain DarkBackground";
     return (
       <header className={className}>
         {this.props.children}

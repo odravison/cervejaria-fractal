@@ -1,7 +1,13 @@
-.custom-navbar {
+.HeaderMain {
   padding: 0.5rem 1rem;
   align-items: center;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.DarkBackground {
+  background-color: #343a40;
 }

@@ -1,57 +1,36 @@
 import React from 'react';
 import List from '../../layout/List/List';
 import BeerItemRow from './BeerItemRow';
+import axios from 'axios';
+import { getPagebleBeersResourceURL } from '../../../config/Domains';
 
 class BeerList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {}
+
+    this.fecthBeers = this.fecthBeers.bind(this);    
   }
+
+  fecthBeers({page, per_page}) {
+    axios.get(getPagebleBeersResourceURL({page, per_page}))
+      .then(res => {
+        const beers = res.data;
+        this.setState({ beers });
+      })
+  }
+
   render() {
+
     const match = this.props.match;
     const headers = ['Name', 'Tagline', 'Actions'];
-    const beers = [
-      {
-        "id": 1,
-        "name": "Buzz",
-        "tagline": "A Real Bitter Experience.",
-        "first_brewed": "09/2007",
-        "description": "A light, crisp and bitter IPA brewed with English and American hops. A small batch brewed only once.",
-        "image_url": "https://images.punkapi.com/v2/keg.png",
-      },
-      {
-        "id": 2,
-        "name": "Buzz",
-        "tagline": "A Real Bitter Experience.",
-        "first_brewed": "09/2007",
-        "description": "A light, crisp and bitter IPA brewed with English and American hops. A small batch brewed only once.",
-        "image_url": "https://images.punkapi.com/v2/keg.png",
-      },
-      {
-        "id": 3,
-        "name": "Buzz",
-        "tagline": "A Real Bitter Experience.",
-        "first_brewed": "09/2007",
-        "description": "A light, crisp and bitter IPA brewed with English and American hops. A small batch brewed only once.",
-        "image_url": "https://images.punkapi.com/v2/keg.png",
-      },
-      {
-        "id": 4,
-        "name": "Buzz",
-        "tagline": "A Real Bitter Experience.",
-        "first_brewed": "09/2007",
-        "description": "A light, crisp and bitter IPA brewed with English and American hops. A small batch brewed only once.",
-        "image_url": "https://images.punkapi.com/v2/keg.png",
-      },
-    ];
+    const beers = this.state.beers;
     return (
-      <div className="container">
-        <List headers={headers}>
-          {beers.map((beer) => (
-            <BeerItemRow key={beer.id} beer={beer} match={match} />
-          ))}
-        </List>
-      </div>
+      <List headers={headers} fetchListFunction={this.fecthBeers}>
+        {beers && beers.map((beer) => (
+          <BeerItemRow key={beer.id} beer={beer} match={match} />
+        ))}
+      </List>
     );
   }
 }

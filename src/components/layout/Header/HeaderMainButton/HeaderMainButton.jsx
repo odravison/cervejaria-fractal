@@ -3,7 +3,10 @@ import './HeaderMainButton.scss';
 import { Link, useRouteMatch } from "react-router-dom";
 
 export default function HeaderMainButton(props) {
-  const className = "HeaderButtonLink";
+  const headerButtonLinkClassName = "HeaderButtonLink";
+  const routeOnClassName = "OnThisRoute";
+  const routeOffClassName = "OutThisRoute";
+
   const match = useRouteMatch({
     path: props.to,
     exact: props.activeOnlyWhenExact
@@ -11,7 +14,7 @@ export default function HeaderMainButton(props) {
 
   return (
     <Link to={props.to}>
-      <button className={match ? '' : className}>
+      <button className={match ? `${routeOnClassName} ${headerButtonLinkClassName}` : `${headerButtonLinkClassName} ${routeOffClassName}`}>
         {props.label}
       </button>
     </Link>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ListRow from '../../layout/List/ListRow';
+import './BeerItemActions.scss';
 
 class BeerItemRow extends React.Component {
   constructor(props) {
@@ -17,11 +18,14 @@ class BeerItemRow extends React.Component {
   }
 }
 
-function BeerActionsButtons(match, beer){
+function BeerActionsButtons(match, beer) {
+
+  const detailClassName = "DetailBeerButton";
+
   return (
     <>
       <Link to={`${match.url}/${beer.id}/detail`}>
-        <button> Detail </button>
+        <button className={detailClassName}> Detail </button>
       </Link>
     </>
   );

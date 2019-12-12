@@ -1,0 +1,19 @@
+.pagination {
+  padding: 0.5rem;
+  button {
+    color: white;
+    background-color: #4CAF50;
+    border: 1px solid #4CAF70;
+  
+    &:hover:not(:disabled) {
+      background-color: #4caf70;
+    }
+  
+    &:disabled {
+      border: 1px solid #999999;
+      background-color: #cccccc;
+      color: #666666;
+    }
+  
+  }
+}

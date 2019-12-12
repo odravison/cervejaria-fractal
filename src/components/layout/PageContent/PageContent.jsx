@@ -1,4 +1,5 @@
 import React from 'react';
+import './PageContent.scss';
 
 class PageContent extends React.Component {
   constructor(props) {
@@ -7,8 +8,10 @@ class PageContent extends React.Component {
 
   }
   render() {
+    const pageContentClassName = "PageContent";
+
     return (
-      <div className="container">
+      <div className={pageContentClassName}>
         {this.props.children}
       </div>
     );

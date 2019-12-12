@@ -11,12 +11,14 @@ class App extends React.Component {
   }
   render() {
     return (
-      <Router>
-        <NavBar></NavBar>
-        <PageContent>
-          <RouterWrapped></RouterWrapped>
-        </PageContent>
-      </Router>
+      <div className="AppContainer">
+        <Router>
+          <NavBar />
+          <PageContent>
+            <RouterWrapped />
+          </PageContent>
+        </Router>
+      </div>
     );
   }
 }

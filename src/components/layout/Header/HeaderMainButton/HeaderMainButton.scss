@@ -1,18 +1,26 @@
 .HeaderButtonLink {
   border: unset;
-  padding: 1rem;
+  padding: 0.5rem;
   margin-left: 0.5rem;
   outline: none;
+  background-color: unset;
+  color: white;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    background-color: #4CAF70;
+  }
+
 }
 
-.HeaderButtonLink:focus {
-  outline: none;
+.OnThisRoute {
+  border-bottom: 0.2rem solid #4CAF70;
 }
 
-.HeaderButtonLink:hover {
-  background-color: blue;
+.OutThisRoute {
+  border-bottom: 0.2rem solid #343A40;
 }
 
-.HeaderButtonLink:active {
-  border-bottom: 0.5rem solid blueviolet;
-}
